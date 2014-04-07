@@ -1,0 +1,45 @@
+.large-4.columns
+  .panel.pane
+    - if @user == current_user
+      %h4 (Your profile)
+    - if @user.avatar?
+      %div{align: "center"}
+        = image_tag @user.avatar.thumb.url
+        %h4= @user.name
+    - if user_signed_in? && @user == current_user
+      = form_for @user do |f|
+        = f.file_field :avatar
+        = f.submit "Save"
+      = link_to edit_registration_path(@user) do
+        %i.fa.fa-pencil
+.large-8.columns
+  %div
+    - @post = Post.new
+    - if user_signed_in?
+      %br
+      = render "posts/form"
+    - @user.recieved_posts.order(created_at: :desc).each do |post|
+      %div.sprite
+        %div{align: "left"}
+          .left
+            = image_tag post.sender.avatar.small.url, width: '48px'
+          .left
+            %h5
+              = link_to post.sender.name, post.sender
+            = time_ago_in_words(post.created_at)
+            ago.
+        %br
+        - if post.sender == current_user
+          .right
+            = link_to post, method: :delete, data: {confirm: "Are you sure?"} do
+              %i.fa.fa-times
+        %br
+        %hr
+          .row
+            .large-10.columns
+              %h4= post.content
+        .right
+          = link_to "#" do
+            %i.fa.fa-heart.red-heart
+        %br
+      %br

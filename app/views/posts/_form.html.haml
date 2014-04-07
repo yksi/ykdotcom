@@ -1,0 +1,5 @@
+= form_for @post do |f|
+  = f.text_area :content
+  = f.hidden_field :sender_id, value: current_user.id
+  = f.hidden_field :recipient_id, value: @user.id
+  = f.submit "Save", class: "button"

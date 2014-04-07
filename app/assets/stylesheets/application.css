@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require foundation_and_overrides
+ *= require_tree .
+ *= require font-awesome
+ */
+
+ body{
+  padding-top: 65px;
+ }
+
+ .small-circle{
+  border-radius: 16px;
+ }
+
+ .vcenter{
+  padding-top: 20px;
+ }
+
+ .pane{
+  height: 600px;
+ }
+
+ .sprite{
+  padding: 5px;
+  border-right: solid;
+  border-left: solid;
+  border-color: #00A377;
+  border-width: 4px;
+  padding-right: 20px;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0.01, #FFFFFF),
+    color-stop(1, #1BC49C)
+  );
+  background-image: -o-linear-gradient(right, #FFFFFF 1%, #1BC49C 100%);
+  background-image: -moz-linear-gradient(right, #FFFFFF 1%, #1BC49C 100%);
+  background-image: -webkit-linear-gradient(right, #FFFFFF 1%, #1BC49C 100%);
+  background-image: -ms-linear-gradient(right, #FFFFFF 1%, #1BC49C 100%);
+  background-image: linear-gradient(to right, #FFFFFF 1%, #1BC49C 100%);
+ }
+
+ .red-heart{
+  color: #000;
+ }
+
