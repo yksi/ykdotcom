@@ -10,6 +10,7 @@ YKdotcom::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations'}
   resources :users
+  resources :messages
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

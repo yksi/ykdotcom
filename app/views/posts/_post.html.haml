@@ -1,0 +1,26 @@
+= content_tag_for(:div, post) do
+  %div.sprite
+    %div{align: "left"}
+      .left
+        = image_tag post.sender.avatar.small.url, width: '48px', class: "img-pad"
+      .left
+        %h5
+          = link_to post.sender.name, post.sender
+        = time_ago_in_words(post.created_at)
+        ago.
+    %br
+    - if post.sender == current_user
+      .right
+        = link_to "#", class: "delete-post", id: "delete" do
+          %i.fa.fa-times
+    %br
+    %hr
+      .row
+        .large-10.columns
+          %p
+            = post.content
+    .right
+      = [*1..200].sample
+      = link_to "#" do
+        %i.fa.fa-heart.red-heart
+    %br

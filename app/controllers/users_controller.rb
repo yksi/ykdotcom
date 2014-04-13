@@ -4,8 +4,18 @@ class UsersController < ApplicationController
   def index
   end
 
-  def show
+  def follow
+    current_user.follow!(@user)
+    redirect_to :back
+  end
 
+  def follow
+    current_user.unfollow!(@user)
+  end
+
+  def show
+    @post = Post.new
+    @message = Message.new
   end
 
   def update

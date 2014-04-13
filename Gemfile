@@ -16,7 +16,7 @@ gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'acts_as_commentable'
-
+gem "ransack"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

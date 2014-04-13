@@ -1,8 +1,12 @@
+%br
 - @users.each do |user|
-  %span.label.round.panel
-    = link_to user do
-      %h4
-        = image_tag user.avatar.small.url, class: "small-circle"
-        = user.name
-  %br
-Top Bar
+  .large-6.column
+    .panel
+      - if user.online?
+        .right
+          .label online
+      = link_to user do
+        %h4
+          = image_tag user.avatar.small.url, class: "small-circle"
+          = user.name
+    %br
