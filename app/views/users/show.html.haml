@@ -1,59 +1,25 @@
-= javascript_include_tag "users"
-- @userjs = current_user
-.large-4.columns
-  .panel.pane
-    - if @user == current_user
-      %h5.right
-        (Your profile)
-        = link_to edit_registration_path(@user), class: "button secondary tiny" do
-          %i.fa.fa-pencil
-    %div{align: "center"}
-      .th
-        = image_tag @user.avatar.thumb.url
-        %h5
-          = @user.name
-      %br
-      %br
-    %div{align: "center"}
-      - if @user.online?
-        .round.label.secondary
-          %i.fa.fa-circle
-          Online
-      - else
-        .round.label.secondary
-          %i.fa.fa-times= "Last login: #{time_ago_in_words(@user.updated_at)} ago."
+.col-xs-4
+  - if @user == current_user
+    %h5
+      (Your profile)
+    = link_to edit_registration_path(@user), class: "button secondary tiny" do
+      %i.fa.fa-pencil
+  %div{align: "center"}
+    = image_tag @user.avatar.thumb.url
+    %h5
+      = @user.name
     %br
     %br
-    - if @user != current_user
-      %a.button.large-12{"data-reveal" => "", "data-reveal-id" => "newMessage", href: "#"}
-        %i.fa.fa-envelope.fa-lg &nbsp;New message
-      %br
-    %ul.side-nav.large-12
-      %li.swinger
-        = link_to "#photos" do
-          %i.fa.fa-camera &nbsp;Photos
-          .right.label 96
-      %li.swinger
-        = link_to "#videos" do
-          %i.fa.fa-video-camera &nbsp;Videos
-          .right
-            .label.secondary= "+ 2"
-            .label 28
-      %li.swinger
-        = link_to "#audios" do
-          %i.fa.fa-music &nbsp;Audio
-          .right
-            .label.alert
-              %i.fa.fa-warning
-            .label 12
-      %li.swinger
-        = link_to "#People" do
-          %i.fa.fa-users &nbsp;People
-          .right
-            .label.secondary= "+ 166"
-            .label 1200
-
-.large-8.columns
+  %div{align: "center"}
+    - if @user.online?
+      %i.fa.fa-circle &nbsp;Online
+    - else
+      %i.fa.fa-times= "Last login: #{time_ago_in_words(@user.updated_at)} ago."
+  - if @user != current_user
+    %a.btn.btn-success{href: "#"}
+      %i.fa.fa-envelope.fa-lg &nbsp;New message
+    %br
+.col-md-8
   %div
     - if user_signed_in?
       %br
@@ -62,7 +28,3 @@
       - @user.recieved_posts.order(created_at: :desc).each do |post|
         = render post
         %br
-#newMessage.reveal-modal{"data-reveal" => ""}
-  %h2 Write Private Message to #{@user.name}
-  = render "messages/form"
-  %a.close-reveal-modal ×

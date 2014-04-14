@@ -24,7 +24,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process :resize_to_fill => [32,32]
+    process :resize_to_fill => [64,64]
   end
 
   def filename

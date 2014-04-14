@@ -1,41 +1,24 @@
-.fixed
-  %nav.top-bar
-    %ul.title-area
-      %li.name
-        %h1
-          = link_to "YKdotcom", root_path
-    %section.top-bar-section
-      - if user_signed_in?
-        %ul.left
-          %li.has-form.vcenter
-            .row.collapse
-              .large-8.small-9.columns
-                %input{placeholder: "Find Stuff", type: "text"}/
-              .large-4.small-3.columns
-                %a.alert.button.expand{href: "#"} Search
-          %li.divider
-          %li
-            = link_to messages_path do
-              %i.fa.fa-envelope.fa-lg
-              - if current_user.unread_messages_count > 0
-                = current_user.unread_messages_count
-          %li.divider
-          %li
-            = link_to root_path do
-              %i.fa.fa-users.fa-lg
-          %li.divider
-          %li
-            = link_to "#news" do
-              %i.fa.fa-globe.fa-lg
-          %li.divider
-      %ul.right
-        - if user_signed_in?
-          %li
-            = link_to current_user do
-              = image_tag current_user.avatar.small.url, class: "small-circle"
-              &nbsp;Profile
-          %li
-            = link_to "Sign out", destroy_user_session_path, method: :delete
-        - else
-          %li
-            = link_to "Sing in", new_user_session_path
+.navbar.navbar-default.container-fluid
+  .navbar-header
+    = link_to "YKdotcom", root_path, class: 'navbar-brand'
+  %ul.nav.navbar-nav  
+    - if user_signed_in?
+      %li
+        = link_to messages_path do
+          %i.fa.fa-envelope.fa-lg
+          - if current_user.unread_messages_count > 0
+            = current_user.unread_messages_count
+      %li
+        = link_to root_path do
+          %i.fa.fa-users.fa-lg
+  %ul.nav.navbar-nav.navbar-right  
+    - if user_signed_in?
+      %li
+        = link_to current_user do
+          = image_tag current_user.avatar.small.url, class: "small-circle", width: "18px"
+          &nbsp;Profile
+      %li
+        = link_to "Sign out", destroy_user_session_path, method: :delete
+    - else
+      %li
+        = link_to "Sing in", new_user_session_path

@@ -1,10 +1,6 @@
-.sprite-post
-  = form_for @post do |f|
-    = f.text_area :content
-    = f.hidden_field :sender_id, value: current_user.id
-    = f.hidden_field :recipient_id, value: @user.id
-    = f.submit "Save", class: "button large-12 column", id: "post-button"
+= form_for @post do |f|
+  = f.text_area :content, class: 'form-control'
+  = f.hidden_field :sender_id, value: current_user.id
+  = f.hidden_field :recipient_id, value: @user.id
   %br
-  %br
-%br
-%br
+  .pull-right= f.submit "Save", class: "btn btn-success", id: "post-button"
