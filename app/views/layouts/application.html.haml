@@ -9,4 +9,10 @@
 
     = render "partials/navbar"
     .row
-      = yield
+      - if user_signed_in? 
+        - if current_user.first_name.present?
+          = yield
+        - else
+          .body= render 'users/name_fill_in_form'
+      - else
+        = yield

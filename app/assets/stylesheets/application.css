@@ -1,58 +1,52 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
  *= require_self
- *= require foundation_and_overrides
  *= require_tree .
  *= require font-awesome
  */
 
- body{
-  margin-top: 65px;
- }
-
- .small-circle{
-  border-radius: 16px;
- }
-
- .vcenter{
+.body{
   padding-top: 20px;
- }
+}
 
- .pane{
+body{
+  padding-top: 20px;
+}
+
+.small-circle{
+  border-radius: 16px;
+}
+
+.vcenter{
+  padding-top: 20px;
+}
+
+.pane{
   position: normal;
   min-height: 600px;
   min-width: 200px;
   -webkit-box-shadow: -7px 7px 23px 0px rgba(83, 117, 138, 0.75);
   -moz-box-shadow:    -7px 7px 23px 0px rgba(83, 117, 138, 0.75);
   box-shadow:         -7px 7px 23px 0px rgba(83, 117, 138, 0.75);
- }
+}
 
- .sprite{
+.sprite{
   padding: 5px;
   border-right: solid;
   border-color: #00A377;
   border-width: 4px;
-  padding-right: 20px;
+  padding: 10px;
   -webkit-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.75);
   -moz-box-shadow:    7px 7px 25px 0px rgba(50, 50, 50, 0.75);
   box-shadow:         7px 7px 25px 0px rgba(50, 50, 50, 0.75);
-  }
+}
 
-  .sprite-post{
+.sprite-post{
   padding: 5px;
   padding-bottom: 20px;
   -webkit-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.75);
   -moz-box-shadow:    7px 7px 25px 0px rgba(50, 50, 50, 0.75);
   box-shadow:         7px 7px 25px 0px rgba(50, 50, 50, 0.75);
-  }
+}
 
  .red-heart{
   color: #000;

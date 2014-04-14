@@ -9,12 +9,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'haml'
-gem 'zurb-foundation'
 gem 'devise'
 gem "socialization"
 gem "font-awesome-rails"
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'mini_magick', '>= 3.5.0'
 gem 'acts_as_commentable'
 gem "ransack"
 
